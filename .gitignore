@@ -1,0 +1,11 @@
+# Dependency directories
+client/node_modules
+server/node_modules
+
+# Keys
+client/src/keys.js
+server/keys.js
+
+# Ignoring package-lock files
+client/package-lock.json
+server/package-lock.json
