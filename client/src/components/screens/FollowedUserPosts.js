@@ -2,11 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const FollowedUserPosts = () => {
     const {state, dispatch} = useContext(UserContext)
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('/allposts', {
+        fetch('/getPostsOfFollowedUsers', {
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem('jwt')
             }
@@ -215,4 +215,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default FollowedUserPosts

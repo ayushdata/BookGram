@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const Post = mongoose.model('Post')
 const requireLogin = require('../middleware/requireLogin')
 
-// List all the posts made by any user
+// Fetch all the posts made by any user
 router.get('/allposts', requireLogin, (req, res) => {
     Post.find()
     .populate('postedBy', "_id name")
@@ -18,12 +18,27 @@ router.get('/allposts', requireLogin, (req, res) => {
     })
 })
 
-// Listing all posts made by user
+// Fetch all posts made by signed in user
 router.get('/myposts', requireLogin, (req, res) => {
     Post.find({postedBy: req.user._id})
     .populate('postedBy', "_id name")
     .then(myposts => {
         res.json({myposts})
+    })
+    .catch((err) => {
+        console.log("error")
+    })
+})
+
+// Fetch posts of all the users who are followed by the signed in user
+router.get('/getPostsOfFollowedUsers', requireLogin, (req, res) => {
+    Post.find({postedBy: {
+        $in: req.user.following
+    }})
+    .populate('postedBy', "_id name")
+    .populate('comments.postedBy', "_id name")
+    .then(posts => {
+        res.json({posts})
     })
     .catch((err) => {
         console.log("error")

@@ -17,15 +17,16 @@ const NavBar = () => {
       return [
         <li key="1"><Link to="/profile">Profile</Link></li>,
         <li key="2"><Link to="/create">Create Post</Link></li>,
-        <li key="3">
-          <button className="btn red darken-3 waves-effect waves-light" onClick={() => logOut()}>Log Out</button>
+        <li key="3"><Link to="/myfollowinguserposts">Followed User Posts</Link></li>,
+        <li key="4">
+          <button style={{marginRight: "5px"}} className="btn red darken-3 waves-effect waves-light" onClick={() => logOut()}>Log Out</button>
         </li>
       ]
     }
     else {
       return [
-        <li key="4"><Link to="/signin">Sign In</Link></li>,
-        <li key="5"><Link to="/signup">Sign Up</Link></li>
+        <li key="5"><Link to="/signin">Sign In</Link></li>,
+        <li key="6"><Link to="/signup">Sign Up</Link></li>
       ]
     }
   }
