@@ -48,7 +48,6 @@ router.get('/getPostsOfFollowedUsers', requireLogin, (req, res) => {
 // Creating a new post
 router.post('/createpost', requireLogin, (req, res) => {
     const {title, body, photo} = req.body
-    console.log(title, body, photo)
     if (!title || !body || !photo){
         return res.status(422).json({error: "Please add all the fields"})
     }

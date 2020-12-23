@@ -12,7 +12,6 @@ const Home = () => {
             }
         }).then(res => res.json())
         .then(result => {
-            console.log(result)
             setData(result.posts)
         })
     }, [])
@@ -82,7 +81,6 @@ const Home = () => {
             })
         }).then(res => res.json())
         .then(result => {
-            console.log(result)
             const newdata = data.map(item => {
                 if (item._id === result._id){
                     return result
@@ -106,7 +104,6 @@ const Home = () => {
         })
         .then(res => res.json())
         .then(result => {
-            console.log(result)
             const newdata = data.filter(item => {
                 return item._id !== result._id
             })

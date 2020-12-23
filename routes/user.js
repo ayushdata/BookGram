@@ -69,5 +69,18 @@ router.put('/unfollow', requireLogin, (req, res) => {
     })
 })
 
+router.put('/updateprofilepic', requireLogin, (req, res) => {
+    User.findByIdAndUpdate(req.user._id, {
+        $set: {profilePic: req.body.profilePic}
+    }, {
+        new: true
+    }).select("-password")
+    .then(result => {
+        return res.json(result)
+    })
+    .catch(err => {
+        return res.status(422).json({error: "Profile Picture not found"})
+    })
+})
 
 module.exports = router

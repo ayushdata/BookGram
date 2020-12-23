@@ -14,7 +14,7 @@ $ git clone https://github.com/ayushdata/BookGram.git
 $ cd BookGram
 ```
 
-Create a keys.js file inside the server folder and paste the below code giving the link to your MongoDB cloud database (MongoDB Atlas can be used) and give a random string of alphanumeric characters in the JWT_SECRET field.
+Create a dev.js file inside the config folder and paste the below code giving the link to your MongoDB cloud database (MongoDB Atlas can be used) and give a random string of alphanumeric characters in the JWT_SECRET field.
 ```
 module.exports = {
     mongoURI: "mongodb+srv://<user>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority",
@@ -22,7 +22,7 @@ module.exports = {
 }
 ```
 
-Create a keys.js file inside the client/src folder and paste the below code giving the cloudName of your Cloudinary account, uploadPreset and the API Base URL of your Cloudinary account.
+Create a dev.js file inside the client/src folder and paste the below code giving the cloudName of your Cloudinary account, uploadPreset and the API Base URL of your Cloudinary account.
 ```
 module.exports = {
     uploadPreset: "YOUR_UPLOAD_PRESET_VALUE",

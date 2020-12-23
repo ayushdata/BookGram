@@ -31,7 +31,6 @@ const Signin = () => {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.error){
                     M.toast({html: data.error, classes: "#d50000 red accent-4"})
                 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { cloudName, uploadPreset, API_URL } from "../../keys"
+import { cloudName, uploadPreset, API_URL } from "../../config/keys"
 import M from "materialize-css"
 
 const CreatePost = () => {
@@ -26,7 +26,6 @@ const CreatePost = () => {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.error){
                     M.toast({html: data.error, classes: "#d50000 red accent-4"})
                 }
@@ -53,7 +52,6 @@ const CreatePost = () => {
         .then(res => res.json())
         .then(data => {
             setUrl(data.secure_url)
-            console.log(data)
         })
         .catch(err => {
             console.log(err)
