@@ -31,9 +31,8 @@ module.exports = {
 }
 ```
 
-Navigate to the server folder from the project root directory, install the dependencies and start the server
+In the project root directory, install the dependencies and start the server
 ```
-$ cd server
 $ npm install
 $ nodemon app
 ```
